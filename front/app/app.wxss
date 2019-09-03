@@ -8,7 +8,7 @@ page {
 }
 
 .primary-color {
-  color: #ff5801 !important;
+  color: #1B8BE0 !important;
 }
 
 .grey-color {
@@ -44,7 +44,7 @@ page {
 button[type=primary], .weui-btn_primary {
   position: relative;
   color: #fff;
-  background-color: #ff5801;
+  background-color: #1B8BE0;
 }
 
 .weui-btn_primary {
@@ -68,22 +68,22 @@ button[type=primary], .weui-btn_primary {
 }
 
 button[type="primary"][plain] {
-  color: #ff5801;
-  border-color: #ff5801;
+  color: #1B8BE0;
+  border-color: #1B8BE0;
 }
 
 button[type="primary"][disabled], button[loading][type="primary"] {
-  background-color: #ffa97c;
+  background-color: #1B8BE0;
 }
 
 .button-hover[type=primary], .button-hover.weui-btn_primary {
   color: rgba(255, 255, 255, 0.8);
-  background-color: #ee5200;
+  background-color: #1B8BE0;
 }
 
 .button-hover[type=primary][plain] {
-  color: #ee5200;
-  border-color: #ee5200;
+  color: #1B8BE0;
+  border-color: #1B8BE0;
 }
 
 .button-sp-area {

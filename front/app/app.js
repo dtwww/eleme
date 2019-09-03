@@ -97,7 +97,7 @@ App({
       },
       fail(res) {
         console.log(res.errMsg)
-        alert('获取用户地址失败')
+        //alert('获取用户地址失败')
       }
     })
   },
