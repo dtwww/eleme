@@ -8,10 +8,8 @@
     "pages/shop/show",
     "pages/order/list",
     "pages/order/content",
-    "pages/mine/coupon",
     "pages/order/review",
     "pages/index/search",
-    "pages/index/category",
     "pages/address/list",
     "pages/index/address",
     "pages/address/add",
@@ -20,12 +18,12 @@
   "window": {
     "backgroundColor": "#f8f8f8",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ff5801",
-    "navigationBarTitleText": "爱跑腿外卖",
+    "navigationBarBackgroundColor": "#1B8BE0",
+    "navigationBarTitleText": "外卖",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "#ff5801",
+    "selectedColor": "#1B8BE0",
     "list": [
       {
         "pagePath": "pages/index/index",

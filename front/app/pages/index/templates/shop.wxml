@@ -54,12 +54,12 @@
           <text class="shop__reach-time primary-color">{{reach_time}}分钟</text>
         </view>
       </view>
-      <view wx:if="{{promotion.length > 0}}" class="shop__promotion">
+      <!-- <view wx:if="{{promotion.length > 0}}" class="shop__promotion">
         <view wx:for="{{promotion}}" wx:key="index" class="shop__promotion-item">
           <image class="shop__promotion-icon" src="{{item.pic_url}}"></image>
           {{item.info}}
         </view>
-      </view>
+      </view> -->
     </view>
   </navigator>
 </template>

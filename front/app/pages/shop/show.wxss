@@ -13,7 +13,7 @@
 
 .shop-info {
   color: #fff;
-  background-color: #ff5801;
+  background-color: #1B8BE0;
 }
 
 .shop-info::before {
@@ -95,7 +95,7 @@
   left: 10%;
   bottom: -1rpx;
   width: 80%;
-  border-bottom: 5rpx solid #ff5801;
+  border-bottom: 5rpx solid #1B8BE0;
 }
 
 /* menu-tab */
@@ -127,7 +127,7 @@
 .menu-item_active {
   background-color: #fff;
   border-color: #fff;
-  border-left: 5rpx solid #ff5801;
+  border-left: 5rpx solid #1B8BE0;
 }
 
 /* goods-list */
@@ -173,7 +173,7 @@
   padding: 3px 8px;
   font-size: 12px;
   color: #fff;
-  background-color: #ff5801;
+  background-color: #1B8BE0;
   border-radius: 8px / 50%;
 }
 
@@ -230,7 +230,7 @@
 }
 
 .menu-cart__price {
-  color: #ff5801;
+  color: #1B8BE0;
   font-size: 1.2em;
 }
 
@@ -261,7 +261,7 @@
 
 .shop-rate__overall-num {
   font-size: 2em;
-  color: #ff5801;
+  color: #1B8BE0;
 }
 .shop-rate__score {
   flex: 3;
@@ -278,7 +278,7 @@
 }
 .shop-rate__score-item-num {
   margin-left: 5px;
-  color: #ff5801;
+  color: #1B8BE0;
 }
 
 /*shop-review*/

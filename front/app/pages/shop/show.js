@@ -22,10 +22,7 @@ var initOrder = {
 
 Page({
   data: {
-    tabs: ["商品", "评价", "商家"],
-    activeIndex: 0,
 
-    activeMenuIndex: 0,
     showCart: false,
 
     showSubGoods: false,
