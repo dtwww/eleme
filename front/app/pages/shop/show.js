@@ -39,9 +39,9 @@ Page({
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    this.id = options.id || 2
-    this.loadData()
-    this.loadReview()
+    // this.id = options.id || 2
+    // this.loadData()
+    // this.loadReview()
   },
   onReady: function () {
     // 页面渲染完成
@@ -172,41 +172,41 @@ Page({
     return goods
   },
 
-  increase(e) {
-    var {order, info: {goods_map}} = this.data;
-    var {goodsId, subId} = e.currentTarget.dataset;
-    var goods = goods_map[goodsId];
-    var {goods_id, goods_name} = goods
-    if (subId) {
-      goods = goods.sub_goods_map[subId];
-      var {sub_id, sub_name} = goods
-    }
-    order.totalNum += 1;
-    order.totalGoodsPrice += +goods.price;
-    order.totalPackingFee += +goods.packing_fee;
-    order.totalPrice = +((order.totalGoodsPrice + order.totalPackingFee).toFixed(2));
-    order.goods = this.addGoods(order.goods, {
-      goods_id, goods_name,
-      sub_id, sub_name,
-      price: goods.price,
-      packing_fee: goods.packing_fee,
-      num: 1
-    })
-    order.goodsNums = this.calcGoodsNums(order.goods)
+  // increase(e) {
+  //   var {order, info: {goods_map}} = this.data;
+  //   var {goodsId, subId} = e.currentTarget.dataset;
+  //   var goods = goods_map[goodsId];
+  //   var {goods_id, goods_name} = goods
+  //   if (subId) {
+  //     goods = goods.sub_goods_map[subId];
+  //     var {sub_id, sub_name} = goods
+  //   }
+  //   order.totalNum += 1;
+  //   order.totalGoodsPrice += +goods.price;
+  //   order.totalPackingFee += +goods.packing_fee;
+  //   order.totalPrice = +((order.totalGoodsPrice + order.totalPackingFee).toFixed(2));
+  //   order.goods = this.addGoods(order.goods, {
+  //     goods_id, goods_name,
+  //     sub_id, sub_name,
+  //     price: goods.price,
+  //     packing_fee: goods.packing_fee,
+  //     num: 1
+  //   })
+  //   order.goodsNums = this.calcGoodsNums(order.goods)
 
-    this.setData({
-      order
-    })
+  //   this.setData({
+  //     order
+  //   })
 
-    if (subId) {
-      this.setData({
-        activeSubGoods: Object.assign(this.data.activeSubGoods, {
-          subNums: this.calcSubNums(order.goods, goodsId)
-        })
-      })
-    }
+  //   if (subId) {
+  //     this.setData({
+  //       activeSubGoods: Object.assign(this.data.activeSubGoods, {
+  //         subNums: this.calcSubNums(order.goods, goodsId)
+  //       })
+  //     })
+  //   }
 
-  },
+  // },
   decrease(e) {
     var {order, info: {goods_map}} = this.data;
     var {goodsId, subId} = e.currentTarget.dataset;
@@ -326,47 +326,50 @@ Page({
     }
   },
   onAddQuasiOrder(e) {
-    var that = this
-    var {
-      info: {seller_id},
-      order: {goods},
-      loading
-    } = this.data
-    if (loading) {
-      return
-    }
-
-    this.setData({
-      loading: true
+    wx.navigateTo({
+      url: '../order/quasi',
     })
-    getApp().getLoginInfo(loginInfo => {
-      if(!loginInfo.is_login) {
-        wx.navigateTo({
-          url: '/pages/login/login',
-        })
-        this.setData({
-          loading: false
-        })
-        return
-      }
-      addQuasiOrder({
-        seller_id, goods,
-        success(data) {
+    // var that = this
+    // var {
+    //   info: {seller_id},
+    //   order: {goods},
+    //   loading
+    // } = this.data
+    // if (loading) {
+    //   return
+    // }
 
-          that.setData({
-            loading: false
-          })
-          wx.navigateTo({
-            url: `/pages/order/quasi?id=${data.quasi_order_id}`
-          })
-        },
-        error() {
-          that.setData({
-            loading: false
-          })
-        }
-      })
-    })
+    // this.setData({
+    //   loading: true
+    // })
+    // getApp().getLoginInfo(loginInfo => {
+    //   if(!loginInfo.is_login) {
+    //     wx.navigateTo({
+    //       url: '/pages/login/login',
+    //     })
+    //     this.setData({
+    //       loading: false
+    //     })
+    //     return
+    //   }
+    //   addQuasiOrder({
+    //     seller_id, goods,
+    //     success(data) {
+
+    //       that.setData({
+    //         loading: false
+    //       })
+    //       wx.navigateTo({
+    //         url: `/pages/order/quasi?id=${data.quasi_order_id}`
+    //       })
+    //     },
+    //     error() {
+    //       that.setData({
+    //         loading: false
+    //       })
+    //     }
+    //   })
+    // })
   },
   onShareAppMessage() {
     var {info:{seller_id, seller_name}} = this.data
