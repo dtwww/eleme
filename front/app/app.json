@@ -7,8 +7,6 @@
     "pages/order/show",
     "pages/shop/show",
     "pages/order/list",
-    "pages/order/content",
-    "pages/order/review",
     "pages/index/search",
     "pages/address/list",
     "pages/address/add"
