@@ -123,57 +123,61 @@ Page({
     })
   },
   onAddOrder(e) {
-    var that = this
-    var {id} = this
-    var {loading, content, info} = this.data
-    if (loading) {
-      return
-    }
-    if (!info.receiver_addr_id) {
-      return alert('请选择收货地址')
-    }
-    this.setData({
-      loading: true
+    console.log(e)
+    wx.navigateTo({
+      url: '../order/list',
     })
-    addOrder({
-      remark: content,
-      quasi_order_id: id,
-      success(data) {
-        var order_id = data['order']['order_id']
-        getPayment({
-          order_id,
-          success(data) {
-            requestPayment({
-              data,
-              complete() {
-                that.setData({
-                  loading: false
-                })
-                wx.switchTab({
-                  url: '/pages/order/list',
-                  success(res) {
-                    var {callback} = getCurrentPage()
-                    callback && callback()
-                  }
-                })
-              }
-            })
-          },
-          error() {
-            that.setData({
-              loading: false
-            })
-          }
-        })
-        that.setData({
-          loading: false
-        })
-      },
-      error() {
-        that.setData({
-          loading: false
-        })
-      }
-    })
+    // var that = this
+    // var {id} = this
+    // var {loading, content, info} = this.data
+    // if (loading) {
+    //   return
+    // }
+    // if (!info.receiver_addr_id) {
+    //   return alert('请选择收货地址')
+    // }
+    // this.setData({
+    //   loading: true
+    // })
+    // addOrder({
+    //   remark: content,
+    //   quasi_order_id: id,
+    //   success(data) {
+    //     var order_id = data['order']['order_id']
+    //     getPayment({
+    //       order_id,
+    //       success(data) {
+    //         requestPayment({
+    //           data,
+    //           complete() {
+    //             that.setData({
+    //               loading: false
+    //             })
+    //             wx.switchTab({
+    //               url: '/pages/order/list',
+    //               success(res) {
+    //                 var {callback} = getCurrentPage()
+    //                 callback && callback()
+    //               }
+    //             })
+    //           }
+    //         })
+    //       },
+    //       error() {
+    //         that.setData({
+    //           loading: false
+    //         })
+    //       }
+    //     })
+    //     that.setData({
+    //       loading: false
+    //     })
+    //   },
+    //   error() {
+    //     that.setData({
+    //       loading: false
+    //     })
+    //   }
+    // })
   }
 })
