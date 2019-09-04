@@ -24,24 +24,11 @@ Page({
   data: {
 
     showCart: false,
-
-    showSubGoods: false,
-
     order: initOrder,
-
-    review: {
-      hasMore: true,
-      loading: false,
-      page: 0,
-    },
-
 
   },
   onLoad: function (options) {
-    // 页面初始化 options为页面跳转所带来的参数
-    // this.id = options.id || 2
-    // this.loadData()
-    // this.loadReview()
+
   },
   onReady: function () {
     // 页面渲染完成
@@ -54,62 +41,6 @@ Page({
   },
   onUnload: function () {
     // 页面关闭
-  },
-
-  loadData() {
-    var that = this
-    var id = this.id;
-    wx.showNavigationBarLoading()
-    getSellerInfo({
-      seller_id: id,
-      success(data) {
-        data['distanceFormat'] = +(data['distance'] / 1000).toFixed(2)
-        that.setData({
-          info: data
-        })
-        wx.setNavigationBarTitle({
-          title: data.seller_name
-        })
-      },
-      complete() {
-        wx.hideNavigationBarLoading()
-      }
-    })
-  },
-
-  loadReview() {
-    var that = this;
-    var id = this.id
-    var {review: {
-      page, loading
-    }} = this.data
-    if (loading) {
-      return;
-    }
-
-    this.setData({
-      'review.loading': true
-    })
-    getReviews({
-      page,
-      seller_id: id,
-      success(data) {
-        var {review: {
-          list
-        }} = that.data
-        var list2 = data.list.map(item => {
-          item['timeFormat'] = datetimeFormat(item['time']);
-          return item
-        })
-
-        that.setData({
-          'review.list': list ? list.concat(list2) : list2,
-          'review.loading': false,
-          'review.page': page + 1,
-          'review.hasMore': data.count == 10
-        })
-      }
-    })
   },
 
   tabClick: function (e) {
@@ -284,92 +215,15 @@ Page({
       showCart: !showCart
     })
   },
-
-  showSubGoods(e) {
-    var {info: {goods_map}, order} = this.data;
-    var {goodsId} = e.currentTarget.dataset;
-    var {goods_id, goods_name, sub_goods} = goods_map[goodsId];
-    this.setData({
-      showSubGoods: true,
-      activeSubGoods: {
-        goods_name, goods_id,
-        sub_goods,
-        activeIndex: 0,
-        subNums: this.calcSubNums(order.goods, goodsId)
-      }
-    })
-  },
-  hideSubGoods(e) {
-    this.setData({
-      showSubGoods: false
-    })
-  },
-  changeSubGoods(e) {
-    var {subIndex} = e.currentTarget.dataset;
-    var {activeSubGoods} = this.data;
-    activeSubGoods['activeIndex'] = subIndex
-    this.setData({
-      activeSubGoods
-    })
-  },
   onPhoneTap(e) {
     var {phone} = e.currentTarget.dataset
     makePhoneCall(phone)
   },
 
-  onScrolltolower(e) {
-    var {
-      hasMore, loading
-    } = this.data.review
-    if (hasMore && !loading) {
-      this.loadReview()
-    }
-  },
   onAddQuasiOrder(e) {
     wx.navigateTo({
       url: '../order/quasi',
     })
-    // var that = this
-    // var {
-    //   info: {seller_id},
-    //   order: {goods},
-    //   loading
-    // } = this.data
-    // if (loading) {
-    //   return
-    // }
-
-    // this.setData({
-    //   loading: true
-    // })
-    // getApp().getLoginInfo(loginInfo => {
-    //   if(!loginInfo.is_login) {
-    //     wx.navigateTo({
-    //       url: '/pages/login/login',
-    //     })
-    //     this.setData({
-    //       loading: false
-    //     })
-    //     return
-    //   }
-    //   addQuasiOrder({
-    //     seller_id, goods,
-    //     success(data) {
-
-    //       that.setData({
-    //         loading: false
-    //       })
-    //       wx.navigateTo({
-    //         url: `/pages/order/quasi?id=${data.quasi_order_id}`
-    //       })
-    //     },
-    //     error() {
-    //       that.setData({
-    //         loading: false
-    //       })
-    //     }
-    //   })
-    // })
   },
   onShareAppMessage() {
     var {info:{seller_id, seller_name}} = this.data

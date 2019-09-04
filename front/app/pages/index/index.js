@@ -6,9 +6,6 @@ import {
 
 Page({
   data: {
-    page: 0,
-    hasMore: true,
-    loading: false,
     imgUrls: [
       'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567574729884&di=ae1a2bff0ab7ca19f830045ac64b6091&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01be8f554218a40000019ae963f53c.jpg',
       'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567575198222&di=47be4b70f92615b1835e23875de3c450&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F963888d523261296078738484ff3e3f4be4efc2e30c6c-lDOP5Q_fw658',
@@ -64,74 +61,5 @@ Page({
         that.runMarquee();
       }
     }, that.data.interval2);
-  },
-  // initAddress() {
-  //   var that = this
-  //   this.invalidateData()
-  //   getApp().getCurrentAddress(function (address) {
-  //     if (address.addr_id) {
-  //       address['title'] = `${address.addr} ${address.detail}`
-  //     }
-  //     that.setData({
-  //       currentAddress: address
-  //     })
-  //     that.loadData()
-  //   })
-  // },
-
-  loadData() {
-    if (this.data.loading) {
-      return;
-    }
-    var that = this
-    var {
-      page,
-    } = this.data
-
-    this.setData({
-      loading: true
-    })
-    getSellers({
-      page,
-      success(data) {
-        var {
-          shopList
-        } = that.data
-
-        var list = data.list.map(item => {
-          item['distanceFormat'] = (item.distance / 1000).toFixed(2)
-          return item
-        })
-        that.setData({
-          shopList: shopList ? shopList.concat(list) : list,
-          page: page + 1,
-          hasMore: data.count == 10,
-          loading: false
-        })
-      }
-    })
-  },
-  invalidateData() {
-    this.setData({
-      page: 0,
-      hasMore: true,
-      loading: false,
-      shopList: null
-    })
-  },
-  onReachBottom(e) {
-    if (this.data.hasMore && !this.data.loading) {
-      this.loadData()
-    }
-  },
-  callback(address) {
-    // getApp().setCurrentAddress(address)
-    // this.initAddress()
-  },
-  onShareAppMessage() {
-    return {
-      title: '首页',
-      path: '/pages/index/index'
-    }
   }
 })
