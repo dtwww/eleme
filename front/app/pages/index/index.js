@@ -24,14 +24,17 @@ Page({
     adUrl: '../../images/notice.png',
   },
   onLoad: function () {
+    let that = this
     wx.request({
-      url: 'http://192.168.43.167:5000/store_list',
+      url: 'http://127.0.0.1:5000/store',
       method: 'GET',
       header: {
         'content-type': 'json'
       },
       success: function (res) {
-        console.log(res.data)
+        that.setData({
+          list: res.data.list
+        })
       }
     })
   },
