@@ -8,18 +8,22 @@ Page({
   data: {
     page: 0,
     hasMore: true,
-    loading: false
+    loading: false,
+    list: null
   },
   onLoad: function () {
+    let that = this
     this.initAddress()
     wx.request({
-      url: 'http://192.168.43.167:5000/store_list',
+      url: 'http://127.0.0.1:5000/store',
       method: 'GET',
       header: {
         'content-type': 'json'
       },
       success: function (res) {
-        console.log(res.data)
+        that.setData({
+          list: res.data.list
+        })
       }
     })
   },
