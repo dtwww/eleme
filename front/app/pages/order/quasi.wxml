@@ -1,17 +1,13 @@
-
 <!--pages/order/quasi.wxml-->
 <view class="quasi">
   <view class="weui-panel weui-panel_address ">
     <view  class="weui-panel__bd ">
-      <navigator url="/pages/address/select?callback=callbackAddress&id={{info.receiver_addr_id}}" class="weui-media-box weui-media-box_text weui-cell__ft_in-access weui-media-box_address">
+      <navigator url="/pages/address/select" class="weui-media-box weui-media-box_text weui-cell__ft_in-access weui-media-box_address">
         <view class="weui-media-box__title weui-media-box__title_in-text">十月 123454634567</view>
         <view class="weui-media-box__desc">
           哈尔滨工业大学（威海）
         </view>
       </navigator>
-      <!-- <navigator url="/pages/address/select?callback=callbackAddress" class=" weui-media-box weui-media-box_text weui-cell__ft_in-access weui-media-box_address primary-color text-large">
-        选择收货地址
-      </navigator> -->
     </view>
   </view>
   <view class="weui-cells">
@@ -67,7 +63,6 @@
     待支付
     <text class="primary-color">¥95</text>
   </view>
-  <!-- <button bindtap="onAddOrder" loading="{{loading}}" disabled="{{disabled || loading}}" class="weui-btn menu-cart__btn" type="primary"> -->
   <button bindtap="onAddOrder" class="weui-btn menu-cart__btn" type="primary">
     提交订单
   </button>
