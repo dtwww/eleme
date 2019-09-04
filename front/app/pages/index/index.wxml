@@ -1,11 +1,21 @@
-<import src="/templates/load-more.wxml" />
-<import src="templates/shop.wxml" />
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}"
+        interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="*this">
+    <swiper-item>
+      <image mode="widthFix" style="width: 100%" src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
 
-<!--index.wxml-->
+<view class="example">
+  <view class="marquee_box">
+    <view class="marquee_text" style="{{orientation}}:{{marqueeDistance}}px;font-size: {{size}}px;">
+      <image src="{{adUrl}}" class='ad-image' />{{text}}
+    </view>
+  </view>
+</view>
+
 <view class="topbar">
-  <!-- <navigator url="./address?callback=callback" class="address trangle">
-    <image class="address__icon" src="/images/location.png"></image>{{currentAddress ? currentAddress.title : '定位中...'}}
-  </navigator> -->
   <navigator url="./search" class="search">
     <icon type="search" size="20" /> 搜索
   </navigator>
@@ -16,17 +26,17 @@
       <image class="weui-media-box__thumb" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567529095459&di=04d5f0ca12edcbae15b0b0f631e63274&imgtype=0&src=http%3A%2F%2Fimg.zx123.cn%2FResources%2Fzx123cn%2Fuploadfile%2F2016%2F1108%2Feb66ef1dee150ee7514e726349431a1e.jpg" />
     </view>
     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-      <view class="weui-media-box__title">川锅一号</view>
+      <view class="weui-media-box__title">{{list[0].store}}</view>
       <view class="weui-media-box__desc shop__desc">
         <view class="shop__sales">
-          <view>月售 666 单</view>
+          <view>{{list[0].sell_per_month}}</view>
         </view>
         <view class="shop__misc weui-flex">
           <view class="shop__fee weui-flex__item">
-            起送 ¥15
+            起送¥{{list[0].qisong}}
           </view>
-          <text class="shop__reach-time grey-color">2.0km</text> |
-          <text class="shop__reach-time primary-color">32分钟</text>
+          <text class="shop__reach-time grey-color">{{list[0].distance_and_time}}</text>
+          <!-- <text class="shop__reach-time primary-color">32分钟</text> -->
         </view>
       </view>
     </view>
@@ -37,17 +47,17 @@
       <image class="weui-media-box__thumb" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567528986262&di=7315f1b0bc4002f4ca5f26bf18fc42fd&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Fnuomi%2Fpic%2Fitem%2F241f95cad1c8a786d391eb826b09c93d71cf5086.jpg" />
     </view>
     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-      <view class="weui-media-box__title">堕落小龙虾</view>
+      <view class="weui-media-box__title">{{list[1].store}}</view>
       <view class="weui-media-box__desc shop__desc">
         <view class="shop__sales">
-          <view>月售 666 单</view>
+          <view>{{list[1].sell_per_month}}</view>
         </view>
         <view class="shop__misc weui-flex">
           <view class="shop__fee weui-flex__item">
-            起送 ¥15
+            起送¥{{list[1].qisong}}
           </view>
-          <text class="shop__reach-time grey-color">2.0km</text> |
-          <text class="shop__reach-time primary-color">32分钟</text>
+          <text class="shop__reach-time grey-color">{{list[1].distance_and_time}}</text>
+          <!-- <text class="shop__reach-time primary-color">32分钟</text> -->
         </view>
       </view>
     </view>
@@ -58,17 +68,17 @@
       <image class="weui-media-box__thumb" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567529217737&di=99f2ada1998c144529bc075a9a6c8f9c&imgtype=0&src=http%3A%2F%2Fqcloud.dpfile.com%2Fpc%2FHaSJcWo01ytNQlpPZ8V8xuOH05KSz0gJllULhKunDxZW41mHeTG1kK-V8SvG1JmmTYGVDmosZWTLal1WbWRW3A.jpg" />
     </view>
     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-      <view class="weui-media-box__title">多番</view>
+      <view class="weui-media-box__title">{{list[2].store}}</view>
       <view class="weui-media-box__desc shop__desc">
         <view class="shop__sales">
-          <view>月售 666 单</view>
+          <view>{{list[2].sell_per_month}}</view>
         </view>
         <view class="shop__misc weui-flex">
           <view class="shop__fee weui-flex__item">
-            起送 ¥15
+            起送¥{{list[2].qisong}}
           </view>
-          <text class="shop__reach-time grey-color">2.0km</text> |
-          <text class="shop__reach-time primary-color">32分钟</text>
+          <text class="shop__reach-time grey-color">{{list[2].distance_and_time}}</text>
+          <!-- <text class="shop__reach-time primary-color">32分钟</text> -->
         </view>
       </view>
     </view>
