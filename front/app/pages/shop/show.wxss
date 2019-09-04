@@ -3,7 +3,6 @@
 @import '/templates/load-more.wxss';
 @import './templates/goods-actions.wxss';
 @import './templates/cart-box.wxss';
-@import './templates/sub-goods.wxss';
 
 .shop-show {
   display: flex;

@@ -1,8 +1,5 @@
-<import src="/templates/star-rate.wxml" />
-<import src="/templates/load-more.wxml" />
 <import src="templates/goods-actions.wxml" />
 <import src="templates/cart-box.wxml" />
-<import src="templates/sub-goods.wxml" />
 
 <!--pages/shop/show.wxml-->
 <view class="shop-show">
@@ -24,17 +21,6 @@
           </view>
         </view>
       </view>
-      <!-- <view wx:if="{{info.promotion && info.promotion.length > 0}}" class="promotion">
-        <swiper class="promotion-swiper" vertical="true" autoplay="true" interval="5000">
-          <swiper-item wx:key="index" wx:for="{{info.promotion}}" class="promotion-item">
-            <image class="promotion-item__icon" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567529095459&di=04d5f0ca12edcbae15b0b0f631e63274&imgtype=0&src=http%3A%2F%2Fimg.zx123.cn%2FResources%2Fzx123cn%2Fuploadfile%2F2016%2F1108%2Feb66ef1dee150ee7514e726349431a1e.jpg"></image>
-            <text>{{item.info}}</text>
-          </swiper-item>
-        </swiper>
-        <view class="promotion-total">
-          {{info.promotion.length}}个活动
-        </view>
-      </view> -->
     </view>
   </view>
   <view class="shop-content">
@@ -62,11 +48,7 @@
                   <view class="goods-item__desc text-small grey-color">月售1份</view>
                   <view class="goods-item__price primary-color text-large">¥10</view>
                   <view class="goods-item__actions">
-                    <view data-goods-id="{{item.goods_id}}" bindtap="showSubGoods" wx:if="{{item.sub_goods && item.sub_goods.length > 0}}" class="goods-item__sub-goods">
-                      选规格
-                      <view wx:if="{{order['goodsNums'][item.goods_id] > 0}}" class="weui-badge goods-item__sub-goods-badge">{{order['goodsNums'][item.goods_id]}}</view>
-                    </view> 
-                    <template is="goods-actions" data="{{goods_id: item.goods_id, num: order['goodsNums'][item.goods_id]}}" wx:else />
+                    <template is="goods-actions" data="{{goods_id: item.goods_id, num: order['goodsNums'][item.goods_id]}}" />
                   </view>
                 </view>
               </view>
@@ -77,11 +59,7 @@
                   <view class="goods-item__desc text-small grey-color">月售1份</view>
                   <view class="goods-item__price primary-color text-large">¥10</view>
                   <view class="goods-item__actions">
-                    <view data-goods-id="{{item.goods_id}}" bindtap="showSubGoods" wx:if="{{item.sub_goods && item.sub_goods.length > 0}}" class="goods-item__sub-goods">
-                      选规格
-                      <view wx:if="{{order['goodsNums'][item.goods_id] > 0}}" class="weui-badge goods-item__sub-goods-badge">{{order['goodsNums'][item.goods_id]}}</view>
-                    </view> 
-                    <template is="goods-actions" data="{{goods_id: item.goods_id, num: order['goodsNums'][item.goods_id]}}" wx:else />
+                    <template is="goods-actions" data="{{goods_id: item.goods_id, num: order['goodsNums'][item.goods_id]}}"/>
                   </view>
                 </view>
               </view>
@@ -92,11 +70,7 @@
                   <view class="goods-item__desc text-small grey-color">月售1份</view>
                   <view class="goods-item__price primary-color text-large">¥10</view>
                   <view class="goods-item__actions">
-                    <view data-goods-id="{{item.goods_id}}" bindtap="showSubGoods" wx:if="{{item.sub_goods && item.sub_goods.length > 0}}" class="goods-item__sub-goods">
-                      选规格
-                      <view wx:if="{{order['goodsNums'][item.goods_id] > 0}}" class="weui-badge goods-item__sub-goods-badge">{{order['goodsNums'][item.goods_id]}}</view>
-                    </view> 
-                    <template is="goods-actions" data="{{goods_id: item.goods_id, num: order['goodsNums'][item.goods_id]}}" wx:else />
+                    <template is="goods-actions" data="{{goods_id: item.goods_id, num: order['goodsNums'][item.goods_id]}}"/>
                   </view>
                 </view>
               </view>
@@ -116,13 +90,8 @@
             <button disabled="{{loading}}" loading="{{loading}}" bindtap="onAddQuasiOrder" class="weui-btn menu-cart__btn" type="primary">
               选好了
             </button>
-            <!-- <button wx:else class="weui-btn menu-cart__btn" type="primary" disabled>
-              <text wx:if="{{order.totalPrice > 0}}">还差{{info.min_price - order.totalPrice}}元起送</text>
-              <text wx:else>还差15元</text>
-            </button> -->
           </view>
     </view>
   </view>
 </view>
 <template wx:if="{{showCart}}" is="cart-box" data="{{...order}}" />
-<template is="sub-goods" wx:if="{{showSubGoods}}" data="{{...activeSubGoods}}" />

@@ -1,11 +1,21 @@
-<import src="/templates/load-more.wxml" />
-<import src="templates/shop.wxml" />
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}"
+        interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="*this">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
 
-<!--index.wxml-->
+<view class="example">
+  <view class="marquee_box">
+    <view class="marquee_text" style="{{orientation}}:{{marqueeDistance}}px;font-size: {{size}}px;">
+      <image src="{{adUrl}}" class='ad-image' />{{text}}
+    </view>
+  </view>
+</view>
+
 <view class="topbar">
-  <!-- <navigator url="./address?callback=callback" class="address trangle">
-    <image class="address__icon" src="/images/location.png"></image>{{currentAddress ? currentAddress.title : '定位中...'}}
-  </navigator> -->
   <navigator url="./search" class="search">
     <icon type="search" size="20" /> 搜索
   </navigator>
