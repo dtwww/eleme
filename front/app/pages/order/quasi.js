@@ -93,9 +93,9 @@ Page({
     })
   },
   onAddOrder(e) {
-    console.log(e)
-    wx.navigateTo({
-      url: '../order/list',
+    // console.log(e)
+    wx.switchTab({
+      url: '/pages/order/list',
     })
     // var that = this
     // var {id} = this
