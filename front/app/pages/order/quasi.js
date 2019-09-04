@@ -51,9 +51,9 @@ Page({
         })
         wx.hideNavigationBarLoading()
       },
-      error() {
-        wx.hideNavigationBarLoading()
-      }
+      // error() {
+      //   wx.hideNavigationBarLoading()
+      // }
     })
     
   },
@@ -87,45 +87,15 @@ Page({
       }
     })
   },
-  callbackCoupon(user_coupon_id) {
-    var that = this
-    var {id} = this
-    var {loading} = this.data
-    if (loading) {
-      return
-    }
-    this.setData({
-      loading: true
-    })
-    wx.showNavigationBarLoading()
-    updateOrderCoupon({
-      quasi_order_id: id,
-      user_coupon_id,
-      success(data) {
-        data['cut_money_total'] = +data.cut_money + +data.coupon_money
-        that.setData({
-          info: data,
-          loading: false
-        })
-        wx.hideNavigationBarLoading()
-      },
-      error() {
-        that.setData({
-          loading: false
-        })
-        wx.hideNavigationBarLoading()
-      }
-    })
-  },
   callbackContent(content) {
     this.setData({
       content
     })
   },
   onAddOrder(e) {
-    console.log(e)
-    wx.navigateTo({
-      url: '../order/list',
+    // console.log(e)
+    wx.switchTab({
+      url: '/pages/order/list',
     })
     // var that = this
     // var {id} = this
