@@ -14,11 +14,9 @@ def hello_world():
 @app.route('/rgb_led',methods=['GET','POST'])
 def rgb_led():
     req = request.get_json()
-    r_val = req['rvalue']
-    g_val = req['gvalue']
-    b_val = req['bvalue']
-    print(r_val)
-    return 'Hello World!'
+    return {
+
+    }
 
 
 if __name__ == '__main__':
