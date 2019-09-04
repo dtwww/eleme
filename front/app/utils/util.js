@@ -202,7 +202,7 @@ export function fetch(options) {
       if (data.State == 'Success') {
         options.success && options.success(data.data)
       } else {
-        alert(data.info)
+        // alert(data.info)
         options.error && options.error(data.info)
       }
       options.complete && options.complete()
@@ -342,7 +342,7 @@ export function getUserInfo(cb) {
                   if (res.authSetting['scope.userInfo']) {
                     getUserInfo(cb)
                   } else {
-                    alert('获取用户信息失败')
+                    // alert('获取用户信息失败')
                   }
                 }
               })
@@ -350,7 +350,7 @@ export function getUserInfo(cb) {
           })
 
         } else {
-          alert('获取用户信息失败')
+          // alert('获取用户信息失败')
         }
       }
     })
