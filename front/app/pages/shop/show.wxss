@@ -349,3 +349,8 @@
   width: 20px;
   vertical-align: middle;
 }
+
+.img {
+  width: 50rpx;
+  height: 50rpx;
+}

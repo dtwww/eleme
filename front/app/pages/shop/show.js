@@ -22,7 +22,7 @@ var initOrder = {
 
 Page({
   data: {
-
+    index: 0,
     showCart: false,
     order: initOrder,
 
@@ -55,9 +55,24 @@ Page({
       activeIndex: current
     })
   },
-  menuClick: function (e) {
+  menuClick0: function (e) {
     this.setData({
-      activeMenuIndex: e.currentTarget.id
+      // activeMenuIndex: e.currentTarget.id
+      index: 0
+    })
+  },
+
+  menuClick1: function (e) {
+    this.setData({
+      // activeMenuIndex: e.currentTarget.id
+      index: 1
+    })
+  },
+
+  menuClick2: function (e) {
+    this.setData({
+      // activeMenuIndex: e.currentTarget.id
+      index: 2
     })
   },
 
