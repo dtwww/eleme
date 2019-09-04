@@ -72,7 +72,14 @@ Page({
         var {list} = that.data
         var {list: list2, count, page} = data
         list2 = list2.map(item => {
-          item['add_time_format'] = datetimeFormat(item.add_time)
+          fetch({
+            url: 'http://127.0.0.1:5000/order_list',
+            data: {
+              
+            },
+            success, error
+          })
+          item = success.data
           return item
         })
         that.setData({

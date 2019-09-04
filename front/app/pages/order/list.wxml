@@ -1,48 +1,17 @@
 <!--pages/order/list.wxml-->
-  <view class="order-list">
-    <view class="order-item">
-      <view class="order-item__hd">
-        <navigator class="order-item__shop trangle" url="/pages/shop/show?id={{item.seller_id}}">
-          堕落小龙虾
-        </navigator>
-      </view>
-      <navigator url="/pages/order/show?id={{item.order_id}}" class="order-item__bd ">
-        <image class="order-item__pic" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567528986262&di=7315f1b0bc4002f4ca5f26bf18fc42fd&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Fnuomi%2Fpic%2Fitem%2F241f95cad1c8a786d391eb826b09c93d71cf5086.jpg"></image>
-        <view class="order-item__content weui-cell__ft_in-access">
-          <view class="order-item__price">¥95.00</view>
-          <view class="">09月04日 18:50</view>
-        </view>
+<view class="order-list">
+  <view class="order-item" wx:for="{{list}}" wx:key="order_id">
+    <view class="order-item__hd">
+      <navigator class="order-item__shop trangle" url="/pages/shop/show?id={{item.seller_id}}">
+        {{item.store}}
       </navigator>
     </view>
-  
-      <view class="order-item">
-      <view class="order-item__hd">
-        <navigator class="order-item__shop trangle" url="/pages/shop/show?id={{item.seller_id}}">
-          堕落小龙虾
-        </navigator>
+    <navigator url="/pages/order/show?id={{item.order_id}}" class="order-item__bd ">
+      <image class="order-item__pic" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567528986262&di=7315f1b0bc4002f4ca5f26bf18fc42fd&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Fnuomi%2Fpic%2Fitem%2F241f95cad1c8a786d391eb826b09c93d71cf5086.jpg"></image>
+      <view class="order-item__content weui-cell__ft_in-access">
+        <view class="order-item__price">¥95.00</view>
+        <view class="">09月04日 18:50</view>
       </view>
-      <navigator url="/pages/order/show?id={{item.order_id}}" class="order-item__bd ">
-        <image class="order-item__pic" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567528986262&di=7315f1b0bc4002f4ca5f26bf18fc42fd&imgtype=0&src=http%3A%2F%2Fhiphotos.baidu.com%2Fnuomi%2Fpic%2Fitem%2F241f95cad1c8a786d391eb826b09c93d71cf5086.jpg"></image>
-        <view class="order-item__content weui-cell__ft_in-access">
-          <view class="order-item__price">¥95.00</view>
-          <view class="">09月04日 18:50</view>
-        </view>
-      </navigator>
-    </view>
-
-      <view class="order-item">
-      <view class="order-item__hd">
-        <navigator class="order-item__shop trangle" url="/pages/shop/show">
-          川锅一号
-        </navigator>
-      </view>
-      <navigator url="/pages/order/show?id={{item.order_id}}" class="order-item__bd ">
-        <image class="order-item__pic" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567529095459&di=04d5f0ca12edcbae15b0b0f631e63274&imgtype=0&src=http%3A%2F%2Fimg.zx123.cn%2FResources%2Fzx123cn%2Fuploadfile%2F2016%2F1108%2Feb66ef1dee150ee7514e726349431a1e.jpg"></image>
-        <view class="order-item__content weui-cell__ft_in-access">
-          <view class="order-item__price">¥95.00</view>
-          <view class="">09月04日 18:50</view>
-        </view>
-      </navigator>
-    </view>
-
+    </navigator>
   </view>
+</view>
