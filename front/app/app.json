@@ -11,9 +11,7 @@
     "pages/order/review",
     "pages/index/search",
     "pages/address/list",
-    "pages/index/address",
-    "pages/address/add",
-    "pages/login/login"
+    "pages/address/add"
   ],
   "window": {
     "backgroundColor": "#f8f8f8",

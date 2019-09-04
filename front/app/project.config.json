@@ -14,7 +14,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.1",
-	"appid": "wxf521b500c8eae0cd",
+	"appid": "wx11aaec65a1ed5833",
 	"projectname": "ipaotui",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -31,13 +31,31 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "address",
+					"pathName": "pages/index/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "show",
+					"pathName": "pages/shop/show",
+					"scene": null
+				}
+			]
 		}
 	}
 }

@@ -1,8 +1,8 @@
 // pages/index/search.js
 import debounce from '../../utils/debounce'
-import {
-  search
-} from '../../utils/apis'
+// import {
+//   search
+// } from '../../utils/apis'
 Page({
 
   /**
@@ -31,24 +31,24 @@ Page({
       inputVal: ""
     });
   },
-  inputTyping: function (e) {
-    var {value} = e.detail
-    this.setData({
-      inputVal: value,
-      page: 0,
-      hasMore: true,
-      loading: false
-    });
-    if (value) {
-      this.loadData()
-    }
-  },
+  // inputTyping: function (e) {
+  //   var {value} = e.detail
+  //   this.setData({
+  //     inputVal: value,
+  //     page: 0,
+  //     hasMore: true,
+  //     loading: false
+  //   });
+  //   if (value) {
+  //     this.loadData()
+  //   }
+  // },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.inputTyping = debounce(this.inputTyping, 300)
+    // this.inputTyping = debounce(this.inputTyping, 300)
   },
 
   /**

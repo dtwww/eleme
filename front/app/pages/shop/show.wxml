@@ -10,10 +10,10 @@
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_appmsg">
         <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-          <image class="weui-media-box__thumb shop-info__pic" src="{{info.pic_url}}" />
+          <image class="weui-media-box__thumb shop-info__pic" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567529095459&di=04d5f0ca12edcbae15b0b0f631e63274&imgtype=0&src=http%3A%2F%2Fimg.zx123.cn%2FResources%2Fzx123cn%2Fuploadfile%2F2016%2F1108%2Feb66ef1dee150ee7514e726349431a1e.jpg" />
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-          <view class="weui-media-box__title">{{info.seller_name}}</view>
+          <view class="weui-media-box__title">川锅一号</view>
           <view class="weui-media-box__desc shop-info__desc">
             <view>
               15元起送 | 32分钟 | 距离2.0km
@@ -24,42 +24,78 @@
           </view>
         </view>
       </view>
-      <view wx:if="{{info.promotion && info.promotion.length > 0}}" class="promotion">
+      <!-- <view wx:if="{{info.promotion && info.promotion.length > 0}}" class="promotion">
         <swiper class="promotion-swiper" vertical="true" autoplay="true" interval="5000">
           <swiper-item wx:key="index" wx:for="{{info.promotion}}" class="promotion-item">
-            <image class="promotion-item__icon" src="{{item.pic_url}}"></image>
+            <image class="promotion-item__icon" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567529095459&di=04d5f0ca12edcbae15b0b0f631e63274&imgtype=0&src=http%3A%2F%2Fimg.zx123.cn%2FResources%2Fzx123cn%2Fuploadfile%2F2016%2F1108%2Feb66ef1dee150ee7514e726349431a1e.jpg"></image>
             <text>{{item.info}}</text>
           </swiper-item>
         </swiper>
         <view class="promotion-total">
           {{info.promotion.length}}个活动
         </view>
-      </view>
+      </view> -->
     </view>
   </view>
   <view class="shop-content">
     <view class=" weui-tab weui-tab_shop">
           <view class="menu-content weui-flex">
             <view class="menu-list">
-              <view bindtap="menuClick" id="{{index}}" class="menu-item {{index == activeMenuIndex ? 'menu-item_active' : ''}} " wx:for="{{info.menus}}" wx:key="menu_id">
-                {{item.menu_name}}
+              <view bindtap="menuClick" id="{{index}}" class="menu-item {{index == activeMenuIndex ? 'menu-item_active' : ''}} " wx:key="menu_id">
+                分类1
+              </view>
+               <view bindtap="menuClick" id="{{index}}" class="menu-item {{index == activeMenuIndex ? 'menu-item_active' : ''}} " wx:key="menu_id">
+                分类2
+              </view>
+               <view bindtap="menuClick" id="{{index}}" class="menu-item {{index == activeMenuIndex ? 'menu-item_active' : ''}} " wx:key="menu_id">
+                分类3
               </view>
             </view>
-            <view wx:if="{{info.menus && info.menus[activeMenuIndex]}}" class="goods-list weui-flex__item">
+            <view class="goods-list weui-flex__item">
               <view class="goods-list__label">
                 {{info.menus[activeMenuIndex].menu_name}}
               </view>
-              <view wx:for="{{info.menus[activeMenuIndex].goods2}}" wx:key="goods_id" class="goods-item weui-flex">
-                <image class="goods-item__pic" src="{{item.pic_url}}"></image>
+              <view wx:key="goods_id" class="goods-item weui-flex">
+                <image class="goods-item__pic" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567529095459&di=04d5f0ca12edcbae15b0b0f631e63274&imgtype=0&src=http%3A%2F%2Fimg.zx123.cn%2FResources%2Fzx123cn%2Fuploadfile%2F2016%2F1108%2Feb66ef1dee150ee7514e726349431a1e.jpg"></image>
                 <view class="weui-flex__item">
-                  <view class="goods-item__name">{{item.goods_name}}</view>
-                  <view class="goods-item__desc text-small grey-color">月售{{item.sales}}份</view>
-                  <view class="goods-item__price primary-color text-large">¥{{item.price}}</view>
+                  <view class="goods-item__name">商品1</view>
+                  <view class="goods-item__desc text-small grey-color">月售1份</view>
+                  <view class="goods-item__price primary-color text-large">¥10</view>
                   <view class="goods-item__actions">
                     <view data-goods-id="{{item.goods_id}}" bindtap="showSubGoods" wx:if="{{item.sub_goods && item.sub_goods.length > 0}}" class="goods-item__sub-goods">
                       选规格
                       <view wx:if="{{order['goodsNums'][item.goods_id] > 0}}" class="weui-badge goods-item__sub-goods-badge">{{order['goodsNums'][item.goods_id]}}</view>
-                    </view>
+                    </view> 
+                    <template is="goods-actions" data="{{goods_id: item.goods_id, num: order['goodsNums'][item.goods_id]}}" wx:else />
+                  </view>
+                </view>
+              </view>
+              <view wx:key="goods_id" class="goods-item weui-flex">
+                <image class="goods-item__pic" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567529095459&di=04d5f0ca12edcbae15b0b0f631e63274&imgtype=0&src=http%3A%2F%2Fimg.zx123.cn%2FResources%2Fzx123cn%2Fuploadfile%2F2016%2F1108%2Feb66ef1dee150ee7514e726349431a1e.jpg"></image>
+                <view class="weui-flex__item">
+                  <view class="goods-item__name">商品2</view>
+                  <view class="goods-item__desc text-small grey-color">月售1份</view>
+                  <view class="goods-item__price primary-color text-large">¥10</view>
+                  <view class="goods-item__actions">
+                    <view data-goods-id="{{item.goods_id}}" bindtap="showSubGoods" wx:if="{{item.sub_goods && item.sub_goods.length > 0}}" class="goods-item__sub-goods">
+                      选规格
+                      <view wx:if="{{order['goodsNums'][item.goods_id] > 0}}" class="weui-badge goods-item__sub-goods-badge">{{order['goodsNums'][item.goods_id]}}</view>
+                    </view> 
+                    <template is="goods-actions" data="{{goods_id: item.goods_id, num: order['goodsNums'][item.goods_id]}}" wx:else />
+                  </view>
+                </view>
+              </view>
+              <view wx:key="goods_id" class="goods-item weui-flex">
+                <image class="goods-item__pic" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567529095459&di=04d5f0ca12edcbae15b0b0f631e63274&imgtype=0&src=http%3A%2F%2Fimg.zx123.cn%2FResources%2Fzx123cn%2Fuploadfile%2F2016%2F1108%2Feb66ef1dee150ee7514e726349431a1e.jpg"></image>
+                <view class="weui-flex__item">
+                  <view class="goods-item__name">商品3</view>
+                  <view class="goods-item__desc text-small grey-color">月售1份</view>
+                  <view class="goods-item__price primary-color text-large">¥10</view>
+                  <view class="goods-item__actions">
+                    <view data-goods-id="{{item.goods_id}}" bindtap="showSubGoods" wx:if="{{item.sub_goods && item.sub_goods.length > 0}}" class="goods-item__sub-goods">
+                      选规格
+                      <view wx:if="{{order['goodsNums'][item.goods_id] > 0}}" class="weui-badge goods-item__sub-goods-badge">{{order['goodsNums'][item.goods_id]}}</view>
+                    </view> 
                     <template is="goods-actions" data="{{goods_id: item.goods_id, num: order['goodsNums'][item.goods_id]}}" wx:else />
                   </view>
                 </view>
@@ -77,13 +113,13 @@
                 <view class="text-small grey-color">另需配送费3元</view>
               </view>
             </view>
-            <button disabled="{{loading}}" loading="{{loading}}" wx:if="{{order.totalPrice >= info.min_price}}" bindtap="onAddQuasiOrder" class="weui-btn menu-cart__btn" type="primary">
+            <button disabled="{{loading}}" loading="{{loading}}" bindtap="onAddQuasiOrder" class="weui-btn menu-cart__btn" type="primary">
               选好了
             </button>
-            <button wx:else class="weui-btn menu-cart__btn" type="primary" disabled>
+            <!-- <button wx:else class="weui-btn menu-cart__btn" type="primary" disabled>
               <text wx:if="{{order.totalPrice > 0}}">还差{{info.min_price - order.totalPrice}}元起送</text>
-              <text wx:else>15元起送</text>
-            </button>
+              <text wx:else>还差15元</text>
+            </button> -->
           </view>
     </view>
   </view>

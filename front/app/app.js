@@ -75,31 +75,31 @@ App({
 
   findNearbyUserAddr(cb, radius = 100) {
     radius /= 100
-    wx.getLocation({
-      type: 'gcj02',
-      success: function (res) {
-        var [lng1, lat1] = gcj02tobd09(res.longitude, res.latitude)
-        getUserAddrs({
-          success(addressList) {
-            for (let i = 0, len = addressList.length; i < len; i++) {
-              var address = addressList[i]
-              var {
-                longitude: lng2,
-                latitude: lat2
-              } = address
-              if (distance(lat1, lng1, lat2, lng2) <= radius) {
-                return cb(address)
-              }
-            }
-            return cb()
-          }
-        })
-      },
-      fail(res) {
-        console.log(res.errMsg)
-        //alert('获取用户地址失败')
-      }
-    })
+    // wx.getLocation({
+    //   type: 'gcj02',
+    //   success: function (res) {
+    //     var [lng1, lat1] = gcj02tobd09(res.longitude, res.latitude)
+    //     getUserAddrs({
+    //       success(addressList) {
+    //         for (let i = 0, len = addressList.length; i < len; i++) {
+    //           var address = addressList[i]
+    //           var {
+    //             longitude: lng2,
+    //             latitude: lat2
+    //           } = address
+    //           if (distance(lat1, lng1, lat2, lng2) <= radius) {
+    //             return cb(address)
+    //           }
+    //         }
+    //         return cb()
+    //       }
+    //     })
+    //   },
+    //   fail(res) {
+    //     console.log(res.errMsg)
+    //     //alert('获取用户地址失败')
+    //   }
+    // })
   },
 
   globalData: {

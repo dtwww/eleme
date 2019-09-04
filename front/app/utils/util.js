@@ -44,43 +44,43 @@ export function getCurrentAddressList(options) {
   const {
     success, complete
   } = options
-  wx.getLocation({
-    type: 'gcj02',
-    success(res) {
-      getAddressFromLocation({
-        location: {
-          latitude: res.latitude,
-          longitude: res.longitude,
-        },
-        success, complete
-      })
-    },
-    fail(res) {
-      console.log(res.errMsg)
-      if (res.errMsg == 'getLocation:fail auth deny' && wx.openSetting) {
-        confirm({
-          content: '若不授权地理位置权限, 则无法正常使用爱跑腿外卖, 请重新授权地理位置权限',
-          cancelText: '不授权',
-          confirmText: '授权',
-          ok() {
-            wx.openSetting({
-              success(res) {
-                console.log(res)
-                if (res.authSetting['scope.userLocation']) {
-                  getCurrentAddressList(options)
-                } else {
-                  alert('获取用户地址失败')
-                }
-              }
-            })
-          }
-        })
-      } else {
-        alert('获取用户地址失败')
-      }
+  // wx.getLocation({
+  //   type: 'gcj02',
+  //   success(res) {
+  //     getAddressFromLocation({
+  //       location: {
+  //         latitude: res.latitude,
+  //         longitude: res.longitude,
+  //       },
+  //       success, complete
+  //     })
+  //   },
+  //   fail(res) {
+  //     console.log(res.errMsg)
+  //     if (res.errMsg == 'getLocation:fail auth deny' && wx.openSetting) {
+  //       confirm({
+  //         content: '若不授权地理位置权限, 则无法正常使用爱跑腿外卖, 请重新授权地理位置权限',
+  //         cancelText: '不授权',
+  //         confirmText: '授权',
+  //         ok() {
+  //           wx.openSetting({
+  //             success(res) {
+  //               console.log(res)
+  //               if (res.authSetting['scope.userLocation']) {
+  //                 getCurrentAddressList(options)
+  //               } else {
+  //                 alert('获取用户地址失败')
+  //               }
+  //             }
+  //           })
+  //         }
+  //       })
+  //     } else {
+  //       alert('获取用户地址失败')
+  //     }
 
-    }
-  })
+  //   }
+  // })
 }
 
 // 地点搜索
@@ -117,25 +117,25 @@ export function getCurrentCity(callback) {
   if (cityName) {
     return callback && callback(cityName)
   }
-  wx.getLocation({
-    type: 'gcj02',
-    success(res) {
-      qqmap.reverseGeocoder({
-        location: {
-          longitude: res.longitude,
-          latitude: res.latitude
-        },
-        success: function (res) {
-          cityName = res.result.address_component.city
-          callback && callback(cityName)
-        }
-      })
-    },
-    fail(res) {
-      console.log(res.errMsg)
-      alert('获取用户地址失败')
-    }
-  })
+  // wx.getLocation({
+  //   type: 'gcj02',
+  //   success(res) {
+  //     qqmap.reverseGeocoder({
+  //       location: {
+  //         longitude: res.longitude,
+  //         latitude: res.latitude
+  //       },
+  //       success: function (res) {
+  //         cityName = res.result.address_component.city
+  //         callback && callback(cityName)
+  //       }
+  //     })
+  //   },
+  //   fail(res) {
+  //     console.log(res.errMsg)
+  //     alert('获取用户地址失败')
+  //   }
+  // })
 }
 
 
