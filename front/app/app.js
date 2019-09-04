@@ -6,9 +6,9 @@ import {
   getCurrentAddress,
   coordFormat
 } from './utils/util'
-import {
-  gcj02tobd09
-} from './utils/coordtransform'
+// import {
+//   gcj02tobd09
+// } from './utils/coordtransform'
 import distance from './utils/distance'
 App({
   onLaunch: function () {

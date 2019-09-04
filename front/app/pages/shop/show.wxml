@@ -1,6 +1,3 @@
-<import src="templates/goods-actions.wxml" />
-<import src="templates/cart-box.wxml" />
-
 <!--pages/shop/show.wxml-->
 <view class="shop-show">
   <view class="shop-info weui-panel weui-panel_access">

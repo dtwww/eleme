@@ -1,16 +1,5 @@
 // pages/shop/show.js
 
-import {
-  makePhoneCall,
-  datetimeFormat
-} from '../../utils/util'
-
-import {
-  getSellerInfo,
-  getReviews, addQuasiOrder
-} from '../../utils/apis'
-
-
 var initOrder = {
   totalNum: 0,
   totalPrice: 0,
@@ -214,10 +203,6 @@ Page({
     this.setData({
       showCart: !showCart
     })
-  },
-  onPhoneTap(e) {
-    var {phone} = e.currentTarget.dataset
-    makePhoneCall(phone)
   },
 
   onAddQuasiOrder(e) {

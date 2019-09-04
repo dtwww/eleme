@@ -1,9 +1,4 @@
 /* pages/shop/show.wxss */
-@import '/templates/star-rate.wxss';
-@import '/templates/load-more.wxss';
-@import './templates/goods-actions.wxss';
-@import './templates/cart-box.wxss';
-
 .shop-show {
   display: flex;
   flex-direction: column;

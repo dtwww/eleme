@@ -265,11 +265,6 @@ export function hideLoading() {
   wx.hideToast()
 }
 
-// 时间格式化
-export function datetimeFormat(unix_timestamp) {
-  return dateFormat(new Date(unix_timestamp * 1000), "mm月dd日 HH:MM")
-}
-
 // 坐标格式化
 export function coordFormat(location) {
   if (location.lat && location.lng) {
@@ -284,14 +279,6 @@ export function coordFormat(location) {
     longitude: location[0],
     latitude: location[1]
   }
-}
-
-// 倒计时格式化
-export function countdownFormat(count) {
-  var seconds = count % 60
-  count = Math.floor(count / 60)
-  var minutes = count % 60
-  return `${minutes}分钟${seconds}秒`
 }
 
 // 字符串关键字分组
@@ -355,33 +342,6 @@ export function getUserInfo(cb) {
       }
     })
   }
-}
-
-// 微信支付
-export function requestPayment(options) {
-  var {
-    data, success, error, complete
-  } = options
-  wx.requestPayment(Object.assign({
-    complete(res) {
-      if (res.errMsg == 'requestPayment:ok') {
-        alert('支付成功', function () {
-          success && success()
-          complete && complete()
-        })
-      } else if (res.errMsg == 'requestPayment:fail cancel') {
-        alert('用户取消支付', function () {
-          error && error()
-          complete && complete()
-        })
-      } else {
-        alert('支付失败', function () {
-          error && error()
-          complete && complete()
-        })
-      }
-    }
-  }, data))
 }
 
 // 分享
