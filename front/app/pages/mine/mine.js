@@ -52,6 +52,14 @@ Page({
       hasUserInfo: true
     })
   },
+  cleanUserInfo: function (e) {
+    console.log(e)
+    app.globalData.userInfo = null
+    this.setData({
+      userInfo: null,
+      hasUserInfo: false
+    })
+  },
 
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -82,26 +90,6 @@ Page({
   },
   onPhoneTap(e) {
     makePhoneCall(e.currentTarget.dataset.phone)
-  },
-  onLogout(e) {
-    var that = this
-    var {loginInfo: {phone}, loading} = this.data
-    if(loading) {
-      return
-    }
-    this.setData({
-      loading: true
-    })
-    logout({
-      phone,
-      success(data) {
-        app.setLoginInfo(data)
-        that.setData({
-          loginInfo: null,
-          loading: false
-        })
-      }
-    })
   },
   callback(loginInfo) {
     this.setData({

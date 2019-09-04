@@ -21,3 +21,4 @@
 </view>
 
 <button class="weui-btn weui-btn_plain" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 登录 </button>
+<button class="weui-btn weui-btn_plain" wx:if="{{hasUserInfo || !canIUse}}" bindtap="cleanUserInfo"> 退出登录 </button>
