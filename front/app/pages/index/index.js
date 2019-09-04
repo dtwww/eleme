@@ -25,6 +25,7 @@ Page({
     adUrl: '../../images/notice.png',
   },
   onLoad: function () {
+    let that = this
     wx.request({
       url: 'http://127.0.0.1:5000/store',
       method: 'GET',

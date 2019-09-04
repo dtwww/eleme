@@ -40,9 +40,8 @@
 			"list": []
 		},
 		"miniprogram": {
-
 			"current": 2,
-			"list": [
+      "list": [
 				{
 					"id": -1,
 					"name": "address",
