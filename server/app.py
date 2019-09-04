@@ -1,25 +1,61 @@
-from flask import Flask
-from flask import render_template,request
+from flask import Flask, make_response, jsonify
+from flask import render_template, request
 
 app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return render_template("control.html")
 
 @app.route('/he')
 def hello_world():
     return 'Hello World!'
 
-@app.route('/rgb_led',methods=['GET','POST'])
-def rgb_led():
+@app.route('/store_list')
+def store_list():
     req = request.get_json()
-    r_val = req['rvalue']
-    g_val = req['gvalue']
-    b_val = req['bvalue']
-    print(r_val)
-    return 'Hello World!'
+    response = jsonify({
+        {
+            "store" : "川锅一号",
+            "sell_per_month" : 666,
+            "distance and time" : 32,
+            "qisong" : 15
+        },
+        {
+            "store": "堕落小龙虾",
+            "sell_per_month": 777,
+            "distance and time": 32,
+            "qisong": 15
+        },
+        {
+            "store": "多番",
+            "sell_per_month": 888,
+            "distance and time": 32,
+            "qisong": 15
+        }
+    })
+    return response
 
+@app.route('/order_list')
+def order_list():
+    req = request.get_json()
+    response = jsonify({
+        {
+            "store" : "川锅一号",
+            "sell_per_month" : 666,
+            "distance and time" : 32,
+            "qisong" : 15
+        },
+        {
+            "store": "堕落小龙虾",
+            "sell_per_month": 777,
+            "distance and time": 32,
+            "qisong": 15
+        },
+        {
+            "store": "多番",
+            "sell_per_month": 888,
+            "distance and time": 32,
+            "qisong": 15
+        }
+    })
+    return response
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
