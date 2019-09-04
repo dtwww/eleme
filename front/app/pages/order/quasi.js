@@ -1,21 +1,13 @@
 // pages/order/quasi.js
 import {
-  getQuasiOrderInfo, updateOrderAddr, updateOrderCoupon,
-  addOrder, getPayment
+  updateOrderAddr
 } from '../../utils/apis'
-
-import {
-  alert,
-  requestPayment, getCurrentPage
-} from '../../utils/util'
 Page({
   data: {
     content: ''
   },
   onLoad: function (options) {
-    // 页面初始化 options为页面跳转所带来的参数
-    this.id = options.id || '2908'
-    this.loadData()
+    // 页面初始化
   },
   onReady: function () {
     // 页面渲染完成
@@ -29,34 +21,6 @@ Page({
   onUnload: function () {
     // 页面关闭
   },
-  loadData() {
-    var that = this
-    var {id} = this
-    var {loading} = this.data
-    if(loading) {
-      return
-    }
-    this.setData({
-      loading: true
-    })
-    wx.showNavigationBarLoading()
-    getQuasiOrderInfo({
-      quasi_order_id: id,
-      success(data) {
-        data['cut_money_total'] = +data.cut_money + +data.coupon_money
-
-        that.setData({
-          info: data,
-          loading: false
-        })
-        wx.hideNavigationBarLoading()
-      },
-      // error() {
-      //   wx.hideNavigationBarLoading()
-      // }
-    })
-    
-  },
   callbackAddress(addr_id) {
     var that = this
     var {id} = this
@@ -67,7 +31,7 @@ Page({
     this.setData({
       loading: true
     })
-    wx.showNavigationBarLoading()
+    // wx.showNavigationBarLoading()
     updateOrderAddr({
       quasi_order_id: id,
       addr_id,
@@ -97,57 +61,5 @@ Page({
     wx.switchTab({
       url: '/pages/order/list',
     })
-    // var that = this
-    // var {id} = this
-    // var {loading, content, info} = this.data
-    // if (loading) {
-    //   return
-    // }
-    // if (!info.receiver_addr_id) {
-    //   return alert('请选择收货地址')
-    // }
-    // this.setData({
-    //   loading: true
-    // })
-    // addOrder({
-    //   remark: content,
-    //   quasi_order_id: id,
-    //   success(data) {
-    //     var order_id = data['order']['order_id']
-    //     getPayment({
-    //       order_id,
-    //       success(data) {
-    //         requestPayment({
-    //           data,
-    //           complete() {
-    //             that.setData({
-    //               loading: false
-    //             })
-    //             wx.switchTab({
-    //               url: '/pages/order/list',
-    //               success(res) {
-    //                 var {callback} = getCurrentPage()
-    //                 callback && callback()
-    //               }
-    //             })
-    //           }
-    //         })
-    //       },
-    //       error() {
-    //         that.setData({
-    //           loading: false
-    //         })
-    //       }
-    //     })
-    //     that.setData({
-    //       loading: false
-    //     })
-    //   },
-    //   error() {
-    //     that.setData({
-    //       loading: false
-    //     })
-    //   }
-    // })
   }
 })

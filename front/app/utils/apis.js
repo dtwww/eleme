@@ -377,28 +377,6 @@ export function updateOrderAddr(options) {
 
   })
 }
-// 更新准订单红包
-export function updateOrderCoupon(options) {
-  var {
-    quasi_order_id, user_coupon_id,
-    success, error
-  } = options
-  getApp().getLoginInfo(loginInfo => {
-    if (!loginInfo.user_info) {
-      return alert('用户未登录')
-    }
-    var {user_id, user_token} = loginInfo.user_info
-    fetch({
-      url: 'index.php?m=Mall&c=Order&a=updateOrderCoupon',
-      data: {
-        user_id, user_token,
-        quasi_order_id, user_coupon_id
-      },
-      success, error
-    })
-
-  })
-}
 
 // 添加订单
 export function addOrder(options) {
@@ -423,28 +401,6 @@ export function addOrder(options) {
   })
 }
 
-// 取消订单
-export function cancelOrder(options) {
-  var {
-    order_id,
-    success, error
-  } = options
-  getApp().getLoginInfo(loginInfo => {
-    if (!loginInfo.user_info) {
-      return alert('用户未登录')
-    }
-    var {user_id, user_token} = loginInfo.user_info
-    fetch({
-      url: 'index.php?m=Mall&c=Order&a=cancelOrder',
-      data: {
-        user_id, user_token,
-        order_id
-      },
-      success, error
-    })
-
-  })
-}
 
 // 获取订单列表
 export function getOrders(options) {
@@ -518,30 +474,6 @@ export function reviewsOrder(options) {
 
   })
 }
-
-// 获取支付参数
-export function getPayment(options) {
-  var {
-    order_id,
-    success, error
-  } = options
-  getApp().getLoginInfo(loginInfo => {
-    if (!loginInfo.user_info) {
-      return alert('用户未登录')
-    }
-    var {user_id, user_token} = loginInfo.user_info
-    fetch({
-      url: 'index.php?m=Mall&c=WeixinMall&a=getPayment',
-      data: {
-        user_id, user_token,
-        order_id
-      },
-      success, error
-    })
-
-  })
-}
-
 
 // 获取分组列表
 export function getSellersByCategory(options) {
