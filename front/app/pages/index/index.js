@@ -13,6 +13,7 @@ Page({
     ],
     indicatorDots: true,
     autoplay: true,
+    circular: true,
     interval: 2000,
     duration: 500,
     text: '好吃好吃好吃好吃好吃好吃好吃好吃',
