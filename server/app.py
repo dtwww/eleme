@@ -11,24 +11,25 @@ def hello_world():
 def store_list():
     req = request.get_json()
     response = jsonify({
-        {
-            "store" : "川锅一号",
-            "sell_per_month" : 666,
-            "distance and time" : 32,
-            "qisong" : 15
-        },
-        {
-            "store": "堕落小龙虾",
-            "sell_per_month": 777,
-            "distance and time": 32,
-            "qisong": 15
-        },
-        {
-            "store": "多番",
-            "sell_per_month": 888,
-            "distance and time": 32,
-            "qisong": 15
-        }
+        "data":[{
+                "store": "川锅一号",
+                "sell_per_month": 666,
+                "distance and time": 32,
+                "qisong": 15
+            },
+            {
+                "store": "堕落小龙虾",
+                "sell_per_month": 777,
+                "distance and time": 32,
+                "qisong": 15
+            },
+            {
+                "store": "多番",
+                "sell_per_month": 888,
+                "distance and time": 32,
+                "qisong": 15
+            }
+        ]
     })
     return response
 
@@ -38,24 +39,24 @@ def order_list():
     response = jsonify({
         {
             "store" : "川锅一号",
-            "sell_per_month" : 666,
-            "distance and time" : 32,
+            "price" : 66,
+            "time" : "9月4日 18:50",
             "qisong" : 15
         },
         {
             "store": "堕落小龙虾",
-            "sell_per_month": 777,
-            "distance and time": 32,
+            "price": 777,
+            "time": "9月4日 18:50",
             "qisong": 15
         },
         {
             "store": "多番",
-            "sell_per_month": 888,
-            "distance and time": 32,
+            "price": 88,
+            "time": "9月4日 18:50",
             "qisong": 15
         }
     })
     return response
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host="0.0.0.0")
