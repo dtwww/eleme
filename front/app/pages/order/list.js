@@ -131,16 +131,16 @@ Page({
     }
   },
   onPullDownRefresh() {
-    var {loginInfo: {is_login}} = this.data
-    if (is_login) {
-      wx.showNavigationBarLoading()
-      this.initData(() => {
-        wx.hideNavigationBarLoading()
-        wx.stopPullDownRefresh()
-      })
-    } else {
-      wx.stopPullDownRefresh()
-    }
+    // var {loginInfo: {is_login}} = this.data
+    // if (is_login) {
+    //   wx.showNavigationBarLoading()
+    //   this.initData(() => {
+    //     wx.hideNavigationBarLoading()
+    //     wx.stopPullDownRefresh()
+    //   })
+    // } else {
+    //   wx.stopPullDownRefresh()
+    // }
   },
 
   callback(loginInfo) {
